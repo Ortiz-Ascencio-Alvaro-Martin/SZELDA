@@ -29,6 +29,7 @@ class Barrera{
 class Mochila{
     - Espacio
 }
+
 class Comerciante{
     + Vender()
 }
