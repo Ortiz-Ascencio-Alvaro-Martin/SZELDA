@@ -1,0 +1,120 @@
+@startuml space
+
+class Link{
+    + MoverDerecha()
+    + MoverIzquierda()
+    + MoverAbajo()
+    + MoverArriba()
+    + Atacar()   
+    + Equipar()
+    + Bloquear()
+    + Rodar()
+    - Dinero
+    - Mana
+}
+
+class Cofre{
+    + Dropear
+    - Estado
+}
+class Enemigo
+class Arma{
+    - Dano
+    - TipoDano
+}
+class Barrera{
+    - Estado
+    + Destruir()
+}
+class Mochila{
+    - Espacio
+}
+class Comerciante{
+    + Vender()
+}
+class Consumible{
+    - Estado
+}
+class Zelda
+class Juego
+class Vida{
+    -Vitalidad
+}
+class Bomba{
+    + Explotar()
+    - Area
+    - Tiempo
+
+}
+class ObjetoDestructible
+class Tunica{
+    -Defensa
+}
+class Flecha{
+    - Dano
+    - Velocidad
+}
+class Piedra{
+    - Dano
+    - Velocidad
+}
+class Arco{
+    + Disparar()
+
+}
+class Espada{
+    - Dano()
+    - Alcance()
+
+}
+class Palo{
+    + Quemar()
+    - Tiempo
+}
+class Nivel
+class ObjetoIndestuctible{
+    - Dureza
+}
+class Hierba{
+    +Dropear()
+}
+class Personaje{
+
+    - Vida
+    - Velocidad
+    - Defensa
+}
+
+class Resortera{
+    +Disparar()
+}
+class Escudo{
+    - Estado
+}
+class Rupia{
+    - Valor
+}
+
+Juego "1" *-- "*" Nivel
+Nivel "1" *-- "*" Enemigo
+Nivel "1" *-- "*" Barrera
+Nivel "1" *-- "*" Hierba
+Nivel "1" *-- "1" Link
+Link "1" o-- "*" Vida
+link --> Personaje
+Zelda --> Personaje
+Enemigo --> Personaje
+Comerciante --> Personaje
+ObjetoDestructible --> Barrera
+ObjetoIndestuctible --> Barrera
+Piedra --> Consumible
+Palo --> Consumible
+Flecha --> Consumible
+Bomba --> Consumible
+Link "1" *-- "1" Mochila
+Arco --> Arma
+Espada --> Arma
+Resortera --> Arma
+Escudo --> Arma 
+Cofre "1" *-- "1" Arma
+@enduml
